@@ -36,6 +36,7 @@ ifeq ($(OS), Linux)
 endif
 	git clone https://github.com/ycm-core/YouCompleteMe.git ~/.vim/plugged/YouCompleteMe && \
 	cd ~/.vim/plugged/YouCompleteMe && \
+	git submodule update --init --recursive && \
 	python3 install.py --clangd-completer
 
 .PHONY: vim
