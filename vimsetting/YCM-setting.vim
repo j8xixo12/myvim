@@ -1,7 +1,7 @@
 " Enable debugging
 let g:ycm_keep_logfiles = 1
 let g:ycm_log_level = 'debug'
-
+let g:ycm_enable_diagnostic_highlighting = 0
 " If the base settings don't repro, paste your existing config for YCM only,
 " here:
 " let g:ycm_....
