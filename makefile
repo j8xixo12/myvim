@@ -57,7 +57,7 @@ $(PREFIX)/bin/vim:
 		make install \
 		rm -rf $(src) && \
 		echo 'alias vim='/usr/local/bin/vim'' >> ~/.zshrc
-
+		vim +VimEnter +PlugInstall +qall
 .PHONY: vimrc
 vimrc:
 	cp vimrc ~/.vimrc
