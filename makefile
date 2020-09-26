@@ -23,7 +23,7 @@ ifeq ($(OS), Linux)
 	sudo apt-get install -y clangd-10
 endif
 ifeq ($(OS), Darwin)
-	brew install llvm \
+	brew install llvm && \
 	echo 'export PATH="/usr/local/opt/llvm/bin:$PATH"' >> ~/.zshrc
 endif
 
@@ -32,7 +32,7 @@ ifeq ($(OS), Darwin)
 	brew install cmake python@3.6.0 mono go nodejs
 endif
 ifeq ($(OS), Linux)
-	sudo apt install -y build-essential cmake python3-dev	
+	sudo apt install -y build-essential cmake python3-dev
 endif
 	git clone https://github.com/ycm-core/YouCompleteMe.git ~/.vim/plugged/YouCompleteMe && \
 	cd ~/.vim/plugged/YouCompleteMe && \
