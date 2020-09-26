@@ -16,6 +16,5 @@ set autoread
 set encoding=utf-8
 set path+=**
 autocmd FileType Makefile setlocal noexpandtab
-set clipboard=unnamedplus
 set backspace=indent,eol,start
 
