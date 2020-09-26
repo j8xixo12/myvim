@@ -8,7 +8,7 @@ set nowrap
 set cursorline
 set tabstop=4
 set shiftwidth=4
-set incsearch
+set hlsearch
 set history=100
 set smartcase
 set expandtab

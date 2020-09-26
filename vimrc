@@ -13,4 +13,3 @@ Plug 'zxqfl/tabnine-vim'
 "-------------------------------------------------------------"
 
 call plug#end()
-autocmd vimenter * NERDTree
