@@ -4,6 +4,8 @@ OS := $(shell uname -s)
 
 Python3 ?= $(shell python3-config --configdir)
 
+VIM_VERSION ?= 8.2.1738
+
 all: vim bear clangd Vim-Plug YCM
 
 Vim-Plug: 
@@ -47,6 +49,7 @@ vim: $(PREFIX)/bin/vim
 $(PREFIX)/bin/vim: /tmp/vim
 		$(eval src = /tmp/vim)
 		cd $(src) && \
+		git checkout $(VIM_VERSION) && \
 		./configure --with-features=huge \
             --enable-multibyte \
             --enable-python3interp=yes \
@@ -62,6 +65,6 @@ $(PREFIX)/bin/vim: /tmp/vim
 		echo 'alias vim='/usr/local/bin/vim'' >> ~/.zshrc
 .PHONY: vimrc
 vimrc:
-	cp vimrc ~/.vimrc
-	cp -R vimsetting ~/.vim/
+	ln -sf $(PWD)/.vimrc $(HOME)/.vimrc
+	ln -sf $(PWD)/vimsetting $(HOME)/.vim/vimsetting
 	vim +PlugInstall +qall

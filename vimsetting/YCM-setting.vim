@@ -9,6 +9,7 @@ let g:ycm_enable_diagnostic_highlighting = 0
 " Load YCM (only)
 let &rtp .= ',' . expand( '<sfile>:p:h' )
 filetype plugin indent on
+let g:ycm_min_num_of_chars_for_completion = 100
 
 map <silent> <F12> :YcmCompleter GoToDefinition<CR>
 map <silent> <F8> :YcmCompleter GoToReferences<CR>
