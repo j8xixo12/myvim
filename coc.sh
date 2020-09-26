@@ -16,7 +16,8 @@ cd ~/.config/coc/extensions
 if [ ! -f package.json ]
 then
   echo '{"dependencies":{"coc-clangd": ">=0.4.14",
-    "coc-python": ">=1.2.12"}}'> package.json
+    "coc-python": ">=1.2.12",
+    "coc-json": ""}}'> package.json
 fi
 # Change extension names to the extensions you need
-npm install coc-clangd coc-python --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
+npm install coc-json coc-clangd coc-python --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod

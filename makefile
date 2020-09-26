@@ -6,7 +6,7 @@ Python3 ?= $(shell python3-config --configdir)
 
 VIM_VERSION ?= v8.2.1738
 
-all: bear clangd vim Vim-Plug cocvim
+all: bear clangd vim Vim-Plug cocvim vimrc
 
 Vim-Plug: 
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -20,9 +20,11 @@ ifeq ($(OS), Darwin)
 	brew install bear
 endif
 
+clangd_ver ?= clangd-10
 clangd:
 ifeq ($(OS), Linux)
-	sudo apt-get install -y clangd-10
+	sudo apt-get install -y $(clangd_ver) && \
+	sudo ln -sf /usr/bin/$(clangd_ver) /usr/bin/clangd
 endif
 ifeq ($(OS), Darwin)
 	brew install llvm && \
@@ -31,7 +33,7 @@ endif
 
 nodejs:
 ifeq ($(OS), Linux)
-	sudo apt-get install nodejs
+	sudo apt-get install -y nodejs
 endif
 ifeq ($(OS), Darwin)
 	brew install node
