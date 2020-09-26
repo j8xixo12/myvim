@@ -6,7 +6,7 @@ Python3 ?= $(shell python3-config --configdir)
 
 VIM_VERSION ?= 8.2.1738
 
-all: vim bear clangd Vim-Plug YCM
+all: bear clangd vim Vim-Plug cocvim
 
 Vim-Plug: 
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -29,17 +29,16 @@ ifeq ($(OS), Darwin)
 	echo 'export PATH="/usr/local/opt/llvm/bin:$PATH"' >> ~/.zshrc
 endif
 
-YCM:
-ifeq ($(OS), Darwin)
-	brew install cmake python@3.6.0 mono go nodejs
-endif
+nodejs:
 ifeq ($(OS), Linux)
-	sudo apt install -y build-essential cmake python3-dev
+	sudo apt-get install nodejs
 endif
-	git clone https://github.com/ycm-core/YouCompleteMe.git ~/.vim/plugged/YouCompleteMe && \
-	cd ~/.vim/plugged/YouCompleteMe && \
-	git submodule update --init --recursive && \
-	python3 install.py --clangd-completer
+ifeq ($(OS), Darwin)
+	brew install node
+endif
+
+cocvim: nodejs
+	./coc.sh
 
 .PHONY: vim
 /tmp/vim:
