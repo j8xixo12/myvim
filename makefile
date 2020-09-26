@@ -4,7 +4,7 @@ OS := $(shell uname -s)
 
 Python3 ?= $(shell python3-config --configdir)
 
-VIM_VERSION ?= 8.2.1738
+VIM_VERSION ?= v8.2.1738
 
 all: bear clangd vim Vim-Plug cocvim
 
