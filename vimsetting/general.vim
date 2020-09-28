@@ -18,3 +18,4 @@ set path+=**
 autocmd FileType Makefile setlocal noexpandtab
 set backspace=indent,eol,start
 
+nmap <silent> <leader><ESC> :let @/=""<CR>
