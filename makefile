@@ -6,11 +6,16 @@ Python3 ?= $(shell python3-config --configdir)
 
 VIM_VERSION ?= v8.2.1738
 
-all: bear clangd vim Vim-Plug cocvim vimrc
+all: bear clangd vim Vim-Plug cocvim color vimrc
 
 Vim-Plug: 
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 		    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+color:
+	git clone https://github.com/tomasr/molokai.git /tmp/molokai && \
+	cd /tmp/molokai && \
+	cp -R colors ~/.vim/ && \
+	rm -rf /tmp/molokai
 
 bear:
 ifeq ($(OS), Linux)
