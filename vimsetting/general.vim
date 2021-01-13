@@ -12,7 +12,6 @@ set hlsearch
 set history=100
 set smartcase
 set expandtab
-set autoread
 set encoding=utf-8
 set path+=**
 autocmd FileType Makefile setlocal noexpandtab

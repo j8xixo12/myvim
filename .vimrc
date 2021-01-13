@@ -11,6 +11,7 @@ Plug 'bling/vim-airline'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdcommenter'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'djoshea/vim-autoread'
 "-------------------------------------------------------------"
 
 call plug#end()
