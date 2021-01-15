@@ -20,8 +20,7 @@ color:
 bear:
 ifeq ($(OS), Linux)
 	sudo apt-get -y install bear
-endif
-ifeq ($(OS), Darwin)
+else ifeq ($(OS), Darwin)
 	brew install bear
 endif
 
@@ -30,8 +29,7 @@ clangd:
 ifeq ($(OS), Linux)
 	sudo apt-get install -y $(clangd_ver) && \
 	sudo ln -sf /usr/bin/$(clangd_ver) /usr/bin/clangd
-endif
-ifeq ($(OS), Darwin)
+else ifeq ($(OS), Darwin)
 	brew install llvm && \
 	echo 'export PATH="/usr/local/opt/llvm/bin:$PATH"' >> ~/.zshrc
 endif
@@ -39,8 +37,7 @@ endif
 nodejs:
 ifeq ($(OS), Linux)
 	sudo apt-get install -y nodejs
-endif
-ifeq ($(OS), Darwin)
+else ifeq ($(OS), Darwin)
 	brew install node
 endif
 
@@ -74,3 +71,4 @@ vimrc:
 	ln -sf $(PWD)/.vimrc $(HOME)/.vimrc
 	ln -sf $(PWD)/vimsetting $(HOME)/.vim/vimsetting
 	vim +PlugInstall +qall
+	
