@@ -6,7 +6,7 @@ Python3 ?= $(shell python3-config --configdir)
 
 VIM_VERSION ?= v8.2.1738
 
-all: bear clangd vim Vim-Plug cocvim color vimrc
+all: bear clangd vim Vim-Plug color vimrc
 
 Vim-Plug: 
 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -40,9 +40,6 @@ ifeq ($(OS), Linux)
 else ifeq ($(OS), Darwin)
 	brew install node
 endif
-
-cocvim: nodejs
-	./coc.sh
 
 .PHONY: vim
 /tmp/vim:
